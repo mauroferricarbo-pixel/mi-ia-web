@@ -10,7 +10,7 @@ st.write("Dibuja un número del 0 al 9 en el recuadro negro.")
 # 1. Cargar el modelo guardado
 @st.cache_resource
 def load_my_model():
-return tf.keras.models.load_model('modelo_mnist.keras')
+	return tf.keras.models.load_model('modelo_mnist.keras')
 model = load_my_model()
 # 2. Crear el lienzo (Canvas) para dibujar
 canvas_result = st_canvas(
@@ -35,7 +35,7 @@ confianza = np.max(pred)
 # 4. Mostrar resultados con Umbral de Seguridad
 st.subheader(f"Resultado: {clase}")
 if confianza < 0.80:
-st.warning(f"Confianza baja ({confianza:.2%}).¿Podrías dibujar más claro?")
+	st.warning(f"Confianza baja ({confianza:.2%}).¿Podrías dibujar más claro?")
 else:
-st.success(f"Confianza alta: {confianza:.2%}")
-st.bar_chart(pred[0]) # Visualización de probabilidades
+	st.success(f"Confianza alta: {confianza:.2%}")
+	st.bar_chart(pred[0]) # Visualización de probabilidades
